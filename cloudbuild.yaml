@@ -1,7 +1,3 @@
-steps:
-  # Etapa para clonar o repositório do GitHub
-  - name: 'gcr.io/cloud-builders/git'
-    args: ['clone', 'https://github.com/Armf99/TYPEORM.git', '.']
 
   # Etapa para construir a imagem Docker
   - name: 'gcr.io/cloud-builders/docker'
