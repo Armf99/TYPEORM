@@ -11,7 +11,7 @@ COPY package*.json ./
 RUN npm install
 
 # Copia apenas os arquivos necessários para a aplicação
-COPY src ./src
+
 
 # Executa o script de build
 RUN npm run build
