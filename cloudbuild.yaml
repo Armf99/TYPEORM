@@ -1,0 +1,16 @@
+steps:
+  # Etapa para clonar o repositório do GitHub
+  - name: 'gcr.io/cloud-builders/git'
+    args: ['clone', 'https://github.com/Armf99/TYPEORM.git', '.']
+
+  # Etapa para construir a imagem Docker
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/projeto', '--build-arg', 'NODE_VERSION=14', '.']
+
+  # Etapa para fazer o push da imagem Docker para o Container Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/$PROJECT_ID/projeto']
+
+  # Etapa para iniciar o aplicativo
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['run', '-d', '-p', '8080:8080', 'gcr.io/$PROJECT_ID/projeto']
