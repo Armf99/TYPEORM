@@ -1,4 +1,4 @@
-
+steps:
   # Etapa para construir a imagem Docker
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 'gcr.io/$PROJECT_ID/projeto', '--build-arg', 'NODE_VERSION=14', '.']
@@ -10,3 +10,4 @@
   # Etapa para iniciar o aplicativo
   - name: 'gcr.io/cloud-builders/docker'
     args: ['run', '-d', '-p', '8080:8080', 'gcr.io/$PROJECT_ID/projeto']
+
